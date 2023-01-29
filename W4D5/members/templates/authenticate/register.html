@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Bootstrap demo</title>
+      <style>
+        .button {
+          background-color: #4CAF50;
+          border: none;
+          color: white;
+          padding: 6px 25px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 14px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+        .boxregister {
+          width: 400px;
+          border: 15px solid green;
+          padding: 100px;
+          margin: auto;
+          margin-top: 5%;
+          {% comment %} text-align: center; {% endcomment %}
+        }
+        .centerbutton {
+          text-align: center;
+        }
+      </style>
+      
+  
+    </head>
+
+    <div class ='boxregister'>
+      <h1 style="text-align:center">Register</h1>
+      {% if form.errors %}
+          <p><em>There was an error with your form. Try again...<em></p>
+      {% endif %}
+      <main class="form-signin w-100 m-auto">
+        <form action="{% url 'register' %}" method=POST>
+          {% csrf_token %}
+          {{ form.as_p }}
+              <br/>
+              <br/>
+            <div class="centerbutton">  
+              <button type="submit" class="button" style="text-align: center" >Submit</button>
+            </div>  
+            
+            {% comment %} <a href = "{% url 'login' %}">Back to login</a> {% endcomment %}
+            {% comment %} <a href="{% url 'login' %}" class="btn btn-primary">Register</a> {% endcomment %}
+    </div>
+    
+
+
+      </form>
+    </main>
+
+
+      
+    </body>
+</html>

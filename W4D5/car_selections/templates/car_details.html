@@ -1,0 +1,68 @@
+
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            div.gallery {
+                border: 1px solid #ccc;
+                float: left;
+                width: 400px;
+            }
+            
+            div.gallery:hover {
+                border: 1px solid #777;
+            }
+            
+            div.gallery img {
+                width: 100%;
+                height: 30%;
+            }
+            
+            div.desc {
+                padding: 15px;
+                text-align: center;
+            }
+            .button {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 6px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                cursor: pointer;
+            }
+            .tunga {
+                margin: auto;
+                width: 400px;
+                font-size: 18px;
+                text-align: center; 
+            }
+
+        </style>
+    </head>
+    <body>
+        {% block content %}
+        <h1 style = "text-align: center">Details for {{ car.name }}</h1>
+            <h3 style = "text-align: center">Please choose from car list below</h3>
+                <div class = 'tunga'>
+                    <div class = "gallery">
+                        <p>{{ car.car_img | safe}}</p>
+                        <p>Manufacturer: {{car.manufacturer}}</p>
+                        <p>Model: {{car.model }}</p>
+                        <p>Year: {{car.year}}</p>
+                        <p>Type: {{car.type}}</p>
+                        <p>Engine size: {{car.engine_size}}</p>
+                        <p>Fuel Type: {{car.fuel_type}}</p>
+                        <p>Features: {{car.features}}</p>
+                        <div class="desc">
+                            <a href="{% url 'home' %}" class="button">Back</a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+        {% endblock %}
+    </body>
+</html>
